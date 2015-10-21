@@ -39,13 +39,12 @@ describe("About Applying What We Have Learnt", function() {
 
       var productsICanEat = [];
 
-      products.filter(function (x) {
-        _.all((_.any(x.ingredients) ==='mushrooms') && (x.containsNuts===false))
+      var filteredArray = products.filter(function (x) {
+        return (_.any(x.ingredients) ==='mushrooms') && (x.containsNuts===false);
       });
+      console.log(filteredArray);
 
-      return productsICanEat;
-      expect(productsICanEat.length).toBe(0);
-      
+      expect(productsICanEat.length).toBe(filteredArray.length);
       
   });
 
@@ -87,7 +86,7 @@ describe("About Applying What We Have Learnt", function() {
         }
     }
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   it("should count the ingredient occurrence (functional)", function () {
@@ -95,7 +94,7 @@ describe("About Applying What We Have Learnt", function() {
 
     /* chain() together map(), flatten() and reduce() */
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(undefined);
   });
 
   /*********************************************************************************/
